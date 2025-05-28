@@ -1,0 +1,19 @@
+name: Test Create Release
+
+on:
+  workflow_dispatch:  # 允许手动触发
+
+permissions:
+  contents: write  # 需要这个权限才能创建 release
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v1.5.5-te_
